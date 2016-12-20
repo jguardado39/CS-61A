@@ -20,7 +20,6 @@ def has_seven(k):
       if last == 7:
         return True
     return False
-
 # Another code to answer this quesiton
     # if k % 10 == 7:
     #     return True
@@ -28,6 +27,10 @@ def has_seven(k):
     #     return False
     # else:
     #     return has_seven(k // 10)
+
+# This is the same concept as Quiz 1 but instead of looking for unique digits,
+# we are looking for a 7 in any digit.
+
 
 # Question 2
 def summation(n, term):
@@ -50,7 +53,7 @@ def summation(n, term):
     if n == 1:
         return term(n)
     else:
-        return term(n) + summation(n -1, term)
+        return term(n) + summation(n - 1, term)
 
 # Another way to answer this question (w/ while loop)
     # i, s  = 1, 0
@@ -59,8 +62,10 @@ def summation(n, term):
     #     i += 1
     # return s
 
-# Question 3
+# This is just a basic while look where it adds all the numbers that need to be
+# added
 
+# Question 3
 def square(x):
     return x * x
 
