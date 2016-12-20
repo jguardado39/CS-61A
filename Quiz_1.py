@@ -8,8 +8,8 @@ def multiple(a, b):
     42
     """
     c = min(a ,b)
-    while True:
-        if c % a == 0: and c % b == 0:
+    while True: # whlie this statement is True
+        if c % a == 0: and c % b == 0: # stops iff c is both divisible by a and b
             return c
         c += 1
 
@@ -38,6 +38,8 @@ def unique_digits(n):
             unique += 1
         i += 1
     return unique
+# Using the has digit function  to find out wheter or not the number has different
+# number of unique digits
 
 def has_digit(n,k):
     while n > 0:
@@ -45,3 +47,5 @@ def has_digit(n,k):
         if last == k:
             return True
     return False
+# This is a function that intakes a number and a digit and outputs True or False
+# Depending on whether that digit is in that number.
