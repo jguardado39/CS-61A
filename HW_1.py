@@ -16,6 +16,8 @@ def a_plus_abs_b(a,b):
         f = add
     return f(a, b)
 
+
+
 # Question 2
 
 def two_of_three(a, b, c):
@@ -33,6 +35,9 @@ def two_of_three(a, b, c):
     """
     return sum(i*i for i in sorted([a, b, c]) [1:3])
 
+# This is a bit more complicated but this just states that we will multiply the
+# all of the sorted list and will only take the sum of the last two of the list
+# in lue item 2 and item 3.
 
 # Question 3
 
@@ -46,9 +51,9 @@ def largest_factor(n):
     >>> largest_factor(13) # factors is 1 and 13 since 13 is a prime number
     1
     """
-    m = n - 1
-    while n % m != 0
-        m -= 1
+    m = n - 1 # Start with the highest factor which could be n-1
+    while n % m != 0 # while loop as long as n does not divide m
+        m -= 1 # subtract 1 to m and continue the loop
     return m
 
 # Question 4
@@ -89,7 +94,7 @@ def c():
 def t():
     return 1
 def f():
-    return None
+    return None #returns nothing
 
 # Question 5
 
@@ -108,15 +113,16 @@ def hailstone(n):
     >>> a
     7
     """
-  count = 1
+  count = 1 # need counter for the labeling of hailstone
     while n >= 1:
-      print (n)
+      print (n) # prints initial n
 
       if n == 1:
-        return count
+        return count #this stops the the counter
       elif  n % 2 == 0:
-        n = n // 2
+        n = n // 2 # for astetic purposes to create integers
       else:
-        n = 3*n + 1
+        n = 3 * n + 1
 
-      count += 1
+      count += 1 # adding count every time it loops
+#test
