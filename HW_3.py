@@ -130,3 +130,8 @@ def product_using_accumulate(n, term):
     True
     """
     return accumulate(mul, 1, n, term)
+
+# Using accumulate we can specify the summation or product so creating the fucntion
+# first we can make simplier function that specify other sub-functions.
+
+# Question 4
