@@ -115,7 +115,7 @@ def summation_using_accumulate(n,term):
     ...       ['Recurssion', 'For', 'While'])
     True
     """
-    return accumulate(sum, 0, n, term)
+    return accumulate(add, 0, n, term)
 
 def product_using_accumulate(n, term):
     """ An implementation of product using accumulate
@@ -135,3 +135,58 @@ def product_using_accumulate(n, term):
 # first we can make simplier function that specify other sub-functions.
 
 # Question 4
+def filtered_accumulate(combiner, base, pred, n, term):
+    """Return the result of combining the terms in a sequence of N terms
+    that satisfy the predicate PRED. COMBINER is a two-argument function.
+    If v1, v2, ..., vk are the values in TERM(1), TERM(2), ..., TREM(N)
+    that statisfy PRED, then the result is
+        BASE COMBINER v1 COMBINER v2 ... COMBINER vk
+    (treating COMBINER as if it were a binary operator, like +). The
+    implemenation uses accumulate.
+
+    >>> filtered_accumulate(add, 0, lambda x: True, 5, identity) # 0 + 1 + 2 + 3 + 4 + 5
+    15
+    >>> filtered_accumulate(add, 11, lambda x: False, 5, identity) # 11
+    11
+    >>> filtered_accumulate(add 0, odd, 5, identity) # 0 + 1 + 3 + 5
+    9
+    >>> filtered_accumulate(mul, 1, greater_than_5, 5, square) # 1 * 9 * 16 * 25
+    3600
+    >>> # Do not use while/for loop or recursion
+    >>> from construct_check import check
+    >>> check(HW_SOURCE_FILE, 'filtered_accumulate',
+    ...       ['While', 'For', 'Recursion'])
+    True
+    """
+    def combine_if(x,y):
+        if pred(y):
+            return combiner(x, y)
+        return x
+    return accumulate(combine_if, base, n, term)
+
+def odd(x):
+    return x % 2 == 1
+
+def greater_than_5(x):
+    return x > 5
+
+# Question 5
+def repeated(f, n):
+    """ Return the function that computes the nth application of f.
+
+    >>> add_three = repeated(increment, 3)
+    >>> add_three(5)
+    8
+    >>> repeated(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
+    243
+    >>> repeated(square, 2)(5) # square(square(5))
+    625
+    >>> repeated(square, 4)(5) # square(square(square(square(5))))
+    152587890625
+    >>> repeated(square, 0)(5)
+    5
+    """
+    while n > 0:
+        if n == 0:
+            return 1
+        return repeated(f, n - 1)
