@@ -125,4 +125,3 @@ def hailstone(n):
         n = 3 * n + 1
 
       count += 1 # adding count every time it loops
-#test
