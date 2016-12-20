@@ -28,11 +28,11 @@ def product (n, term):
     14400
     """
 
-    i, s  = 1, 1
-    while i <= n:
+    i, s  = 1, 1 # Counter and total
+    while i <= n: # stop iff i > n
         s = term(i) * s
         i += 1
-    return s
+    return s # Return total
 
 # The identity function, defined using a lambda expression!
 identity = lambda k: k
@@ -48,7 +48,8 @@ def factorial (n):
     >>> chekc(HW_SOURCE_FILE, 'factorial', ['Recursion', 'For', 'While'])
     True
     """
-    return product(n, identity)
+    return product(n, identity) # Using the function product with the lambda
+                                # funciton and input n
 
 # Question 2
 def make_adder(n):
