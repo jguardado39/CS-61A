@@ -98,5 +98,35 @@ def accumulate(combiner, base, n, term):
     """
     if n == 0:
         return base
-    else:
-        return combiner(term(n-1))
+    return combiner(term(n), accumulate(combiner, base, n - 1, term))
+# This is a simple if statement where we use recurssion in order to get accumulate
+# to zero and adds/multiplies everything else
+
+def summation_using_accumulate(n,term):
+    """ Returns the sum of term(1) + ... + term(n). The implementation uses
+    accumulate.
+
+    >>> summation_using_accumulate(5, square)
+    55
+    >>> summation_using_accumulate(5, triple)
+    45
+    >>> from construct_check import check
+    >>> check(HW_SOURCE_FILE, 'summation_using_accumulate',
+    ...       ['Recurssion', 'For', 'While'])
+    True
+    """
+    return accumulate(sum, 0, n, term)
+
+def product_using_accumulate(n, term):
+    """ An implementation of product using accumulate
+
+    >>> product_using_accumulate(4, square)
+    576
+    >>> product_using_accumulate(6, triple)
+    524880
+    >>> from construct_check import check
+    >>> check(HW_SOURCE_FILE, 'product_using_accumulate'
+    ...       ['Recurssion', 'For', 'While'])
+    True
+    """
+    return accumulate(mul, 1, n, term)
