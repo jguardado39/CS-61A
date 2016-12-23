@@ -161,7 +161,6 @@ def filtered_accumulate(combiner, base, pred, n, term):
     def combine_if(x,y):
         if pred(y):
             return combiner(x, y)
-        else:
         return x
     return accumulate(combine_if, base, n, term)
 
