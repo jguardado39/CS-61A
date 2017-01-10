@@ -88,7 +88,7 @@ def g_iter(n):
         n = n - 1
     return c
 
-# Question 4
+# Question 4: Ping Pong
 
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
@@ -122,20 +122,20 @@ def pingpong(n):
     True
     """
     def pingpong_next(k, p, up):
-        if k == n:
+        if k == n: # This will terminate the funciton
             return p
         if up:
             return pingpong_switch(k + 1, p + 1, up)
         else:
-            return pingpong_switch(k + 1, p - 1, up)
+            return pingpong_switch(k + 1, p - 1, up) # Initial when not up
 
     def pingpong_switch(k, p, up):
-        if k % 7 == 0 or has_seven(k):
+        if k % 7 == 0 or has_seven(k): # Either has 7 or is a multiple of 7
             return pingpong_next(k, p, not up)
         else:
             return pingpong_next(k, p, up)
 
-    return pingpong_next(1, 1, True)
+    return pingpong_next(1, 1, True) # This is to inititate pingpong_next
 
 def has_seven(k):
   """Returns True if at least one of the digits of k is a 7, False otherwise.
@@ -159,3 +159,19 @@ def has_seven(k):
     return False
   else:
     return has_seven(k // 10)
+
+# Question 5: Count change
+
+def count_change(amount):
+    """Return the number of ways to make change for amount.
+
+    >>> count_change(7)
+    6
+    >>> count_change(10)
+    14
+    >>> count_change(20)
+    60
+    >>> count_change(100)
+    9828
+    """
+    
