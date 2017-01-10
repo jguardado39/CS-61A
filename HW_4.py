@@ -174,4 +174,21 @@ def count_change(amount):
     >>> count_change(100)
     9828
     """
-    
+    return count_using(1, amount) # This will initiate the funciton
+
+def count_using(min_coin, amount):
+    if amount == 0: # Counts the number of partitions
+      return 1
+    elif amount < 0:
+      return 0
+    elif min_coin > amount:
+      return 0
+    else:
+      with_min = count_using(min_coin, amount - min_coin)
+      without_min = count_using(2 * min_coin, amount)
+    return with_min + without_min
+
+# Extra Questions
+# Question 6: ANonymous factorial
+
+from operator import sub, mul
