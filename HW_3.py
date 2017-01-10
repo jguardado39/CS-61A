@@ -170,23 +170,23 @@ def odd(x):
 def greater_than_5(x):
     return x > 5
 
-# Question 5
-def repeated(f, n):
-    """ Return the function that computes the nth application of f.
+# Question 5 (Having issues with this code)
+# def repeated(f, n):
+#     """ Return the function that computes the nth application of f.
+#
+#     >>> add_three = repeated(increment, 3)
+#     >>> add_three(5)
+#     8
+#     >>> repeated(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
+#     243
+#     >>> repeated(square, 2)(5) # square(square(5))
+#     625
+#     >>> repeated(square, 4)(5) # square(square(square(square(5))))
+#     152587890625
+#     >>> repeated(square, 0)(5)
+#     5
+#     """
+#     return accumulate()
 
-    >>> add_three = repeated(increment, 3)
-    >>> add_three(5)
-    8
-    >>> repeated(triple, 5)(1) # 3 * 3 * 3 * 3 * 3 * 1
-    243
-    >>> repeated(square, 2)(5) # square(square(5))
-    625
-    >>> repeated(square, 4)(5) # square(square(square(square(5))))
-    152587890625
-    >>> repeated(square, 0)(5)
-    5
-    """
-    while n > 0:
-        if n == 0:
-            return 1
-        return repeated(f, n - 1)
+# Extra Question
+# Quine
