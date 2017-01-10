@@ -22,3 +22,16 @@ def taxicab(a,b):
     """
     return abs(street(a)-street(b)) + abs(avenue(a)-avenue(b))
     # abs(w(a)-avenue(a)-w(b)-avenue(b)) - abs(a-(w(a)**2+w(a)//2)-b-(w(b)**2+w(b)//2))
+
+def sqaures(s):
+    """Returns a new list containing sqaure roots of the elements of the
+    original list that are percect squares.
+
+    >>> seq = [8, 49, 8, 9, 2, 1, 100, 102]
+    >>> squares(seq)
+    [7, 3, 1, 10]
+    >>> seq = [500, 30]
+    >>> squares(seq)
+    []
+    """
+    
