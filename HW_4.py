@@ -192,3 +192,14 @@ def count_using(min_coin, amount):
 # Question 6: ANonymous factorial
 
 from operator import sub, mul
+
+def make_anonymous_factorial():
+    """Returns the value of an expression that computes factorial.
+
+    >>> make_anonymous_factorial ()(5)
+    120
+    >>> from construction check import check
+    >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign','FunctionDef','Recursion'])
+    True
+    """
+        return (lambda m: lambda n: m(m, n))(lambda m, n: n if n == 1 else mul(n, m(m, sub(n, 1))))
