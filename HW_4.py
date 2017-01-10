@@ -21,3 +21,4 @@ def taxicab(a,b):
     9
     """
     return abs(street(a)-street(b)) + abs(avenue(a)-avenue(b))
+    # abs(w(a)-avenue(a)-w(b)-avenue(b)) - abs(a-(w(a)**2+w(a)//2)-b-(w(b)**2+w(b)//2))
