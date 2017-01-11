@@ -91,3 +91,56 @@ def move_stack(n, start, end):
         move_stack(n - 1, start, other)
         print_move(start, end)
         move_stack(n - 1, other, end)
+
+# Interval
+
+def str_interval(x):
+    """Return a string reprsentation of interval x."""
+    return '(0) to (1)'.format(lower_bound(x), upper_bound(x))
+
+def add_interval(x, y):
+    """Return an intervavl that contains the sum of any value in interval x and
+    any value in interval y."""
+    lower = lower_bound(x) + lower_bound(y)
+    upper = upper_bound(x) + upper_bound(y)
+    return interval(lower, upper)
+
+def interval(a,b):
+    """ Construct an interval from a to b."""
+    assert a <= b
+    return [a, b]
+
+def lower_bound(x):
+    """Return the lower bound of interval x."""
+    return x[0]
+def upper_bound(x):
+    """Return the uppower bound of intervval x."""
+    return x[1]
+def mul_interval(x, y):
+    """Return the interval that contains the product of any value in x and any
+    value in y."""
+    p1 = x[0] * y[0]
+    p2 = x[0] * y[1]
+    p3 = x[1] * y[0]
+    p4 = x[1] * y[1]
+    return [min(p1, p2, p3, p4), max(p1, p2, p3, p4)]
+
+# Question 5: Sub Interval
+
+def sub_interval(x, y):
+    """Return the interval that contains the difference between any value in x
+    and any value in y."""
+    negative_y = interval(-upper_bound(y), -lower_bound(y))
+    return add_interval(x, negative_y)
+
+
+# Question 6: Div Interval
+def div_interval(x, y):
+    """Return the interval that contains the quotient of any value in x divided by
+    any vvalue in y. Division is implemented as the mulitiplication of x by the
+    reciprocal of y. """
+    assert (lower_bound(y) <= 0 <= upper_bound(y)) # Cannot divide by zero
+    reciprocal_y = interval(1 / upper_bound(y), 1 / lower_bound(y))
+    return mul_interval(x, reciprocal_y)
+
+# Question 7: Par Diff
