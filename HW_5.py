@@ -47,4 +47,4 @@ def swap(a,b):
     >>> b
     [1, 'two', 3]
     """
-    "YOUR CODE HERE"
+    a[:], b[:] = list(a), list(b)
