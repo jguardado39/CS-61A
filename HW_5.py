@@ -168,3 +168,21 @@ def check_par():
     return r1, r2
 
 # Question 8: Multiple References
+
+def multiple_references_explanation():
+    return """The multiple reference problem exists.  The true value
+    within a particular interval is fixed (though unknown).  Nested
+    combinations that refer to the same interval twice may assume two different
+    true values for the same interval, which is an error that results in
+    intervals that are larger than they should be.
+
+    Consider the case of i * i, where i is an interval from -1 to 1.  No value
+    within this interval, when squared, will give a negative result.  However,
+    our mul_interval function will allow us to choose 1 from the first
+    reference to i and -1 from the second, giving an erroneous lower bound of
+    -1.
+
+    Hence, a program like par2 is better than par1 because it never combines
+    the same interval more than once.
+    """
+# Question 9: Quadratic
