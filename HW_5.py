@@ -139,8 +139,32 @@ def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
     any vvalue in y. Division is implemented as the mulitiplication of x by the
     reciprocal of y. """
-    assert (lower_bound(y) <= 0 <= upper_bound(y)) # Cannot divide by zero
+    assert not (lower_bound(y) <= 0 <= upper_bound(y)) # Cannot divide by zero
     reciprocal_y = interval(1 / upper_bound(y), 1 / lower_bound(y))
     return mul_interval(x, reciprocal_y)
 
 # Question 7: Par Diff
+
+def par1(r1, r2):
+    return div_interval(mul_interval(r1, r2), add_interval(r1, r2))
+
+def par2(r1, r2):
+    one = interval(1, 1)
+    rep_r1 = div_interval(one, r1)
+    rep_r2 = div_interval(one, r2)
+    return div_interval(one, add_interval(rep_r1, rep_r2))
+
+def check_par():
+    """Return two intervals that give different results for parallel resistors.
+
+    >>> r1, r2 = check_part()
+    >>> x = par1(r1, r2)
+    >>> y = par2(r1, r2)
+    >>> lower_bound(x) != lower_bound(y) or upper bound(x) != upper_bound(y)
+    True
+    """
+    r1 = interval(1, 2)
+    r2 = interval(3, 4)
+    return r1, r2
+
+# Question 8: Multiple References
