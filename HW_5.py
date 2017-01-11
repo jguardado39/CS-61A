@@ -186,3 +186,14 @@ def multiple_references_explanation():
     the same interval more than once.
     """
 # Question 9: Quadratic
+
+def quadratic(x, a, b, c):
+    """Return the interval that is the range of the quadratic defined by
+    coefficients a, b, and c, for domain interval x.
+
+    >>> str_interval(quadratic(interval(0, 2), -2, 3, -1))
+    '-3 to 0.125'
+    >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
+    '0 to 10'
+    """
+    
