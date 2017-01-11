@@ -196,4 +196,10 @@ def quadratic(x, a, b, c):
     >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
     '0 to 10'
     """
-    
+    extremum = -b / (2*a)
+    f = lambda x: a * x * x + b * x + c
+    l, u, e = map(f, (lower_bound(x), upper_bound(x), extremum))
+    if extremum >= lower_bound(x) and extremum <= upper_bound(x):
+        return interval(min(l, u, e), max(l, u, e))
+    else:
+        return interval(min(l, u), max(l, u))
